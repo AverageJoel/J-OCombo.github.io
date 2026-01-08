@@ -2700,6 +2700,15 @@ input, select, textarea {
 			transform: scale(1.05);
 		}
 
+		/* Disable hover transform for the intro image so it remains static */
+		#intro a.image img {
+			-moz-transform: none !important;
+			-webkit-transform: none !important;
+			-ms-transform: none !important;
+			transform: none !important;
+			transition: none !important;
+		}
+
 /* Actions */
 
 	ul.actions {
@@ -3309,7 +3318,7 @@ input, select, textarea {
 
 	#intro {
 		color: #ffffff;
-		padding: 8rem 4rem 6rem 4rem ;
+		padding: 2rem 4rem 6rem 4rem ;
 		-moz-align-items: center;
 		-webkit-align-items: center;
 		-ms-align-items: center;
@@ -3322,10 +3331,10 @@ input, select, textarea {
 		-webkit-flex-direction: column;
 		-ms-flex-direction: column;
 		flex-direction: column;
-		-moz-justify-content: -moz-flex-end;
-		-webkit-justify-content: -webkit-flex-end;
-		-ms-justify-content: -ms-flex-end;
-		justify-content: flex-end;
+		-moz-justify-content: center;
+		-webkit-justify-content: center;
+		-ms-justify-content: center;
+		justify-content: center;
 		-moz-transition: opacity 1s ease, -moz-transform 1s ease;
 		-webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
 		-ms-transition: opacity 1s ease, -ms-transform 1s ease;
@@ -3605,27 +3614,37 @@ input, select, textarea {
 				color: #18bfef !important;
 			}
 
-		@media screen and (max-width: 980px) {
-
-			#header {
-				height: 14rem;
-				padding-bottom: 4rem;
-			}
-
-		}
-
-		@media screen and (max-width: 736px) {
-
-			#header {
-				padding-bottom: 3rem;
-			}
-
-				#header .logo {
-					font-size: 1.75rem;
-					border-width: 3px !important;
+			/* Responsive header logo */
+			#header .logo img {
+					display: block;
+					max-width: 100%;
+					height: auto;
+					max-height: 6rem;
 				}
 
+			/* Intro logo scales but stays centered */
+			#intro .image.main img {
+					display: block;
+					width: 100%;
+					max-width: 32rem;
+					aspect-ratio: 1 / 1;
+					object-fit: cover;
+					margin: 0 auto;
+					border-radius: 50%;
+				}
+
+	@media screen and (max-width: 736px) {
+
+		#header {
+			padding-bottom: 3rem;
 		}
+
+		#header .logo {
+			font-size: 1.75rem;
+			border-width: 3px !important;
+		}
+
+	}
 
 /* Nav */
 
