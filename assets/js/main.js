@@ -255,33 +255,41 @@
 
 		}
 
-	// Contact Form Handler.
+	// Contact Form Handler with EmailJS.
 		var $contactForm = $('#contact-form');
 
 		if ($contactForm.length > 0) {
 
-			// Obfuscate email using character codes
-			function getContactEmail() {
-				var codes = [111,108,105,118,105,97,46,109,97,115,115,101,121,56,56,64,111,117,116,108,111,111,107,46,99,111,109];
-				return String.fromCharCode.apply(null, codes);
-			}
+			// Initialize EmailJS
+			emailjs.init('p6JYnPAO72tsOETh7');
 
 			$contactForm.on('submit', function(e) {
 				e.preventDefault();
 
-				var name = $('#name').val();
-				var email = $('#email').val();
-				var message = $('#message').val();
+				var $submitBtn = $contactForm.find('input[type="submit"]');
+				var originalValue = $submitBtn.val();
+				$submitBtn.val('Sending...').prop('disabled', true);
 
-				var subject = encodeURIComponent('J&O Combo Contact: ' + name);
-				var body = encodeURIComponent(
-					'From: ' + name + '\n' +
-					'Email: ' + email + '\n\n' +
-					'Message:\n' + message
-				);
+				var templateParams = {
+					from_name: $('#name').val(),
+					from_email: $('#email').val(),
+					message: $('#message').val()
+				};
 
-				var mailto = 'mailto:' + getContactEmail() + '?subject=' + subject + '&body=' + body;
-				window.location.href = mailto;
+				emailjs.send('service_1ltvvoa', 'template_7ib4x8i', templateParams)
+					.then(function() {
+						$submitBtn.val('Sent!');
+						$contactForm[0].reset();
+						setTimeout(function() {
+							$submitBtn.val(originalValue).prop('disabled', false);
+						}, 3000);
+					}, function(error) {
+						$submitBtn.val('Error - Try Again').prop('disabled', false);
+						console.error('EmailJS error:', error);
+						setTimeout(function() {
+							$submitBtn.val(originalValue);
+						}, 3000);
+					});
 			});
 
 		}
