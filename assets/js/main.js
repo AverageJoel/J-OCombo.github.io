@@ -273,6 +273,7 @@
 				var templateParams = {
 					from_name: $('#name').val(),
 					from_email: $('#email').val(),
+					subject: $('#subject').val(),
 					message: $('#message').val()
 				};
 
