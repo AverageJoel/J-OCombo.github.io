@@ -255,4 +255,35 @@
 
 		}
 
+	// Contact Form Handler.
+		var $contactForm = $('#contact-form');
+
+		if ($contactForm.length > 0) {
+
+			// Obfuscate email using character codes
+			function getContactEmail() {
+				var codes = [111,108,105,118,105,97,46,109,97,115,115,101,121,56,56,64,111,117,116,108,111,111,107,46,99,111,109];
+				return String.fromCharCode.apply(null, codes);
+			}
+
+			$contactForm.on('submit', function(e) {
+				e.preventDefault();
+
+				var name = $('#name').val();
+				var email = $('#email').val();
+				var message = $('#message').val();
+
+				var subject = encodeURIComponent('J&O Combo Contact: ' + name);
+				var body = encodeURIComponent(
+					'From: ' + name + '\n' +
+					'Email: ' + email + '\n\n' +
+					'Message:\n' + message
+				);
+
+				var mailto = 'mailto:' + getContactEmail() + '?subject=' + subject + '&body=' + body;
+				window.location.href = mailto;
+			});
+
+		}
+
 })(jQuery);
