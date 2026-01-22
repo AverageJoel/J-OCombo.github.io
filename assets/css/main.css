@@ -106,7 +106,7 @@ input, select, textarea {
 		-ms-overflow-style: scrollbar;
 	}
 
-	@media screen and (max-width: 480px) {
+	@media screen and (max-width: 0px) {
 
 		html, body {
 			min-width: 320px;
@@ -1324,7 +1324,7 @@ input, select, textarea {
 
 		}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 0px) {
 
 			.row {
 				display: flex;
@@ -1569,7 +1569,7 @@ input, select, textarea {
 
 		}
 
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: 0px) {
 
 			.row {
 				display: flex;
@@ -2309,7 +2309,7 @@ input, select, textarea {
 					width: calc(25% - 0.375rem);
 				}
 
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: 0px) {
 
 			form > .fields {
 				width: calc(100% + 3rem);
@@ -2670,7 +2670,7 @@ input, select, textarea {
 				width: 100%;
 			}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 0px) {
 
 			.image.fit {
 				margin: 2rem 0;
@@ -2780,7 +2780,7 @@ input, select, textarea {
 				width: 100%;
 			}
 
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: 0px) {
 
 			ul.actions:not(.fixed) {
 				-moz-flex-direction: column;
@@ -3021,7 +3021,7 @@ input, select, textarea {
 
 		}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 0px) {
 
 			header.major {
 				margin: 0 0 2rem 0;
@@ -3213,7 +3213,7 @@ input, select, textarea {
 
 		}
 
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: 0px) {
 
 			.pagination .page, .pagination .extra {
 				display: none;
@@ -3499,7 +3499,7 @@ input, select, textarea {
 
 		}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 0px) {
 
 			#intro {
 				padding: 3rem 2rem 1rem 2rem ;
@@ -3633,7 +3633,7 @@ input, select, textarea {
 					border-radius: 50%;
 				}
 
-	@media screen and (max-width: 736px) {
+	@media screen and (max-width: 0px) {
 
 		#header {
 			padding-bottom: 3rem;
@@ -3847,7 +3847,7 @@ input, select, textarea {
 
 			}
 
-			@media screen and (max-width: 736px) {
+			@media screen and (max-width: 0px) {
 
 				#main > .post {
 					padding: 4rem 2rem 2rem 2rem ;
@@ -3937,7 +3937,7 @@ input, select, textarea {
 
 			}
 
-			@media screen and (max-width: 736px) {
+			@media screen and (max-width: 0px) {
 
 				#main > .posts > * {
 					width: 100%;
@@ -3972,7 +3972,7 @@ input, select, textarea {
 
 			}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 0px) {
 
 			#main > * {
 				padding: 2rem 2rem 0.1rem 2rem ;
@@ -3980,7 +3980,7 @@ input, select, textarea {
 
 		}
 
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: 0px) {
 
 			#main {
 				width: 100%;
@@ -4385,7 +4385,7 @@ input, select, textarea {
 
 		}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 0px) {
 
 			#footer > section {
 				padding: 2rem 2rem 0.1rem 2rem ;
@@ -4417,7 +4417,7 @@ input, select, textarea {
 
 		}
 
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: 0px) {
 
 			#footer {
 				width: 100%;
@@ -4511,7 +4511,7 @@ input, select, textarea {
 
 		}
 
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: 0px) {
 
 			#copyright ul li {
 				border-left: 0;
@@ -4577,17 +4577,10 @@ input, select, textarea {
 				background-color: #ffffff;
 			}
 
-		@media screen and (max-width: 980px) {
+		@media screen and (max-width: 0px) {
 
 			#navPanelToggle {
 				display: block;
-			}
-
-		}
-
-		@media screen and (max-width: 736px) {
-
-			#navPanelToggle {
 				font-size: 0.8rem;
 				padding: 0.25rem 1rem;
 			}
@@ -4689,7 +4682,7 @@ input, select, textarea {
 				color: #212931;
 			}
 
-			@media screen and (max-width: 736px) {
+			@media screen and (max-width: 0px) {
 
 				#navPanel .close {
 					height: 4rem;
@@ -4698,23 +4691,16 @@ input, select, textarea {
 
 			}
 
-		@media screen and (max-width: 980px) {
+		@media screen and (max-width: 0px) {
 
 			#navPanel {
 				display: block;
-			}
-
-		}
-
-		@media screen and (max-width: 736px) {
-
-			#navPanel {
 				padding: 2.5rem 1.75rem;
 			}
 
 		}
 
-	@media screen and (max-width: 980px) {
+	@media screen and (max-width: 0px) {
 
 		body.is-navPanel-visible #wrapper {
 			opacity: 0.5;
@@ -4732,12 +4718,49 @@ input, select, textarea {
 	}
 
 /* Footer social links - hidden on desktop, shown on mobile (hamburger menu breakpoint) */
-#footer .footer-social {
+#footer > section.split.contact > section.footer-social {
 	display: none;
 }
 
-@media screen and (max-width: 980px) {
-	#footer .footer-social {
-		display: block;
+@media screen and (max-width: 0px) {
+	#footer > section.split.contact > section.footer-social {
+		display: flex;
 	}
+}
+
+/* Nav - always visible and responsive */
+#nav {
+	display: flex !important;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#nav .links {
+	display: flex !important;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+#nav .links li a {
+	font-size: clamp(0.7rem, 2vw, 1rem);
+	padding: 0 0.5rem;
+}
+
+#nav .icons {
+	display: flex !important;
+}
+
+#navPanelToggle {
+	display: none !important;
+}
+
+/* Calendar event card - smooth scaling */
+.posts article {
+	width: 100%;
+	max-width: 50rem;
+	min-width: 18rem;
+	flex: 1 1 auto;
+	margin: 0.5rem;
+	padding: 1rem;
 }

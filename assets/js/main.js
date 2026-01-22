@@ -168,7 +168,7 @@
 			// Move nav content on breakpoint change.
 				var $navContent = $nav.children();
 
-				breakpoints.on('>medium', function() {
+				breakpoints.on('>xsmall', function() {
 
 					// NavPanel -> Nav.
 						$navContent.appendTo($nav);
@@ -179,7 +179,7 @@
 
 				});
 
-				breakpoints.on('<=medium', function() {
+				breakpoints.on('<=xsmall', function() {
 
 					// Nav -> NavPanel.
 						$navContent.appendTo($navPanelInner);
@@ -216,7 +216,7 @@
 				}
 
 			// Hide intro on scroll (> small).
-				breakpoints.on('>small', function() {
+				breakpoints.on('>xsmall', function() {
 
 					$main.unscrollex();
 
@@ -235,7 +235,7 @@
 				});
 
 			// Hide intro on scroll (<= small).
-				breakpoints.on('<=small', function() {
+				breakpoints.on('<=xsmall', function() {
 
 					$main.unscrollex();
 
@@ -296,3 +296,63 @@
 		}
 
 })(jQuery);
+
+// Calculate and display next second Sunday for recurring event
+function updateNextEventDate() {
+	const today = new Date();
+	const currentMonth = today.getMonth();
+	const currentYear = today.getFullYear();
+
+	// Start with current month
+	let targetMonth = currentMonth;
+	let targetYear = currentYear;
+
+	// Find the second Sunday of the current month
+	let secondSunday = getSecondSunday(targetYear, targetMonth);
+
+	// If the second Sunday has already passed, move to next month
+	if (secondSunday < today) {
+		targetMonth++;
+		if (targetMonth > 11) {
+			targetMonth = 0;
+			targetYear++;
+		}
+		secondSunday = getSecondSunday(targetYear, targetMonth);
+	}
+
+	// Format the date
+	const options = { year: 'numeric', month: 'long', day: 'numeric' };
+	const formattedDate = secondSunday.toLocaleDateString('en-US', options);
+
+	// Update the DOM
+	const dateElement = document.getElementById('next-event-date');
+	if (dateElement) {
+		dateElement.textContent = formattedDate;
+	}
+}
+
+function getSecondSunday(year, month) {
+	let sunday = 0;
+	let sundayCount = 0;
+
+	for (let day = 1; day <= 31; day++) {
+		const date = new Date(year, month, day);
+
+		// Stop if we've moved to the next month
+		if (date.getMonth() !== month) break;
+
+		// Check if it's Sunday (day 0)
+		if (date.getDay() === 0) {
+			sundayCount++;
+			if (sundayCount === 2) {
+				sunday = day;
+				break;
+			}
+		}
+	}
+
+	return new Date(year, month, sunday);
+}
+
+// Run when page loads
+window.addEventListener('load', updateNextEventDate);
