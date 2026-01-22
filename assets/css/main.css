@@ -4730,3 +4730,14 @@ input, select, textarea {
 		}
 
 	}
+
+/* Footer social links - hidden on desktop, shown on mobile (hamburger menu breakpoint) */
+#footer .footer-social {
+	display: none;
+}
+
+@media screen and (max-width: 980px) {
+	#footer .footer-social {
+		display: block;
+	}
+}
