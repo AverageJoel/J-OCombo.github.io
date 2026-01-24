@@ -40,8 +40,9 @@
 
 		&.fit {
 			display: block;
-			margin: (_size(element-margin) * 1.25) 0;
+			margin: (_size(element-margin) * 0.75) 0;
 			width: 100%;
+			max-width: 100%;
 
 			&:first-child {
 				margin-top: 0;
@@ -49,13 +50,15 @@
 
 			img {
 				width: 100%;
+				max-width: 100%;
 			}
 		}
 
 		&.main {
 			display: block;
-			margin: (_size(element-margin) * 2) 0;
+			margin: (_size(element-margin) * 1.25) 0;
 			width: 100%;
+			max-width: 100%;
 
 			&:first-child {
 				margin-top: 0;
@@ -63,6 +66,32 @@
 
 			img {
 				width: 100%;
+				max-width: 70%;
+				margin: 0 auto;
+			}
+		}
+
+		@include breakpoint('<=xlarge') {
+			&.main {
+				img {
+					max-width: 75%;
+				}
+			}
+		}
+
+		@include breakpoint('<=large') {
+			&.main {
+				img {
+					max-width: 80%;
+				}
+			}
+		}
+
+		@include breakpoint('<=medium') {
+			&.main {
+				img {
+					max-width: 85%;
+				}
 			}
 		}
 
@@ -73,6 +102,10 @@
 
 			&.main {
 				margin: _size(element-margin) 0;
+
+				img {
+					max-width: 95%;
+				}
 			}
 		}
 	}

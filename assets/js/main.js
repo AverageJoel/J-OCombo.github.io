@@ -123,8 +123,8 @@
 	// Background.
 		$wrapper._parallax(0.925);
 
-	// Nav Panel.
-
+	// Nav Panel - DISABLED (navigation always visible)
+	/*
 		// Toggle.
 			$navPanelToggle = $(
 				'<a href="#navPanel" id="navPanelToggle">Menu</a>'
@@ -168,7 +168,7 @@
 			// Move nav content on breakpoint change.
 				var $navContent = $nav.children();
 
-				breakpoints.on('>xsmall', function() {
+				breakpoints.on('>medium', function() {
 
 					// NavPanel -> Nav.
 						$navContent.appendTo($nav);
@@ -179,7 +179,7 @@
 
 				});
 
-				breakpoints.on('<=xsmall', function() {
+				breakpoints.on('<=medium', function() {
 
 					// Nav -> NavPanel.
 						$navContent.appendTo($navPanelInner);
@@ -195,6 +195,7 @@
 				&&	browser.osVersion < 10)
 					$navPanel
 						.css('transition', 'none');
+	*/
 
 	// Intro.
 		var $intro = $('#intro');
@@ -216,7 +217,7 @@
 				}
 
 			// Hide intro on scroll (> small).
-				breakpoints.on('>xsmall', function() {
+				breakpoints.on('>medium', function() {
 
 					$main.unscrollex();
 
@@ -235,7 +236,7 @@
 				});
 
 			// Hide intro on scroll (<= small).
-				breakpoints.on('<=xsmall', function() {
+				breakpoints.on('<=medium', function() {
 
 					$main.unscrollex();
 

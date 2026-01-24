@@ -11,19 +11,21 @@
 		@include color-typography(invert);
 		@include vendor('display', 'flex');
 		@include vendor('transition', (
-			'transform 1s ease',
-			'opacity 1s ease'
+			'background-color 0.3s ease'
 		));
-		background: rgba(255,255,255,0.175);
-		height: 4rem;
-		line-height: 4rem;
-		margin: -4rem auto 0 auto;
+		background: rgba(0,0,0,0.85);
+		min-height: 4rem;
+		height: auto;
+		margin: 0 auto;
 		overflow: hidden;
 		padding: 0 2rem 0 0;
-		position: relative;
+		position: fixed;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
 		width: calc(100% - #{_size(padding) * 2});
 		max-width: _size(wrapper);
-		z-index: 2;
+		z-index: 10001;
 
 		ul {
 			&.links {
@@ -39,7 +41,8 @@
 				text-transform: uppercase;
 
 				li {
-					display: block;
+					display: flex;
+					align-items: center;
 					padding-left: 0;
 
 					a {
@@ -51,6 +54,9 @@
 						font-size: 0.8rem;
 						outline: none;
 						padding: 0 2rem;
+						line-height: 1.2;
+						white-space: normal;
+						border-bottom: none;
 
 						&:hover {
 							color: inherit !important;
@@ -75,11 +81,10 @@
 			&.icons {
 				@include vendor('flex-grow', '0');
 				@include vendor('flex-shrink', '0');
+				@include vendor('display', 'flex');
+				@include vendor('align-items', 'center');
 				margin-bottom: 0;
 			}
 		}
 
-		@include breakpoint('<=medium') {
-			display: none;
-		}
 	}
