@@ -46,6 +46,10 @@
 					padding-left: 0;
 
 					a {
+						transition: padding 0.18s ease, font-size 0.18s ease;
+					}
+
+					a {
 						@include vendor('transition', (
 							'background-color #{_duration(transition)} ease-in-out',
 							'color #{_duration(transition)} ease-in-out'
@@ -87,4 +91,87 @@
 			}
 		}
 
+	}
+
+	@include breakpoint('<=small') {
+		#nav {
+			left: 0;
+			transform: none;
+			width: 100%;
+			max-width: none;
+			padding: 0 1rem;
+
+			ul {
+				&.links {
+					li {
+						flex: 1 1 0;
+						min-width: 0;
+						transition: flex 0.18s ease, padding 0.18s ease;
+
+						a {
+							padding: 0 0.5rem;
+							font-size: 0.75rem;
+
+							.two-line {
+								display: inline-block;
+								text-align: center;
+								line-height: 1;
+								white-space: normal;
+								font-size: inherit;
+								.two-line > span { display: block; line-height: 1; }
+							}
+						}
+					}
+				}
+
+				&.icons {
+					gap: 0.25rem;
+					padding-left: 0.5rem;
+					transition: gap 0.18s ease, padding-left 0.18s ease;
+
+						li {
+							padding: 0 0.35rem;
+						}
+
+						li a.icon {
+							padding: 0.25rem;
+						}
+
+						li a:before {
+						width: 2rem;
+						height: 2rem;
+						line-height: 2rem;
+						font-size: 1rem;
+					}
+				}
+
+					/* Tighten icon spacing on very small screens */
+					@media screen and (max-width: 420px) {
+						gap: 0.12rem;
+						padding-left: 0.3rem;
+
+						li { padding: 0 0.15rem; }
+
+						li a.icon { padding: 0.1rem; }
+
+						li a:before {
+							width: 1.9rem;
+							height: 1.9rem;
+							line-height: 1.9rem;
+							font-size: 0.95rem;
+						}
+					}
+			}
+		}
+	}
+
+	/* Keep nav full-width while main content is still expanding (matches compiled CSS breakpoint) */
+	@media screen and (max-width: 75rem) {
+		#nav {
+			left: 0;
+			transform: none;
+			width: 100%;
+			max-width: none;
+			padding: 0 1rem;
+		}
 	}
