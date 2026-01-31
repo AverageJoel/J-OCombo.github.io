@@ -3073,3 +3073,18 @@ table.alt tbody tr td {
     transform: translateX(0);
     box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);
     visibility: visible; } }
+
+/* Event list dividers */
+.event-list .event-item + .event-item {
+  border-left: 1px solid rgba(160, 160, 160, 0.3);
+  padding-left: 2em;
+}
+
+@media screen and (max-width: 680px) {
+  .event-list .event-item + .event-item {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(160, 160, 160, 0.3);
+    padding-top: 2em;
+  }
+}
